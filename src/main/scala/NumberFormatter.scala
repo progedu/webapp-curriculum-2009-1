@@ -4,7 +4,7 @@ object NumberFormatter {
     val reversed: String = number.toString.reverse
     val indexedSeq: Seq[(Char, Int)] = reversed.zipWithIndex
     val nestedSeq: Seq[Seq[Char]] = indexedSeq.map(
-      (t) => if (t._2 % 3 == 2) {
+      (t) => if (t._2 % 3 == 2 && t._2 != reversed.size-1) {
         Seq(t._1, ',')
       } else {
         Seq(t._1)
