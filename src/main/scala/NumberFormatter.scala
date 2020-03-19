@@ -5,7 +5,6 @@ object NumberFormatter {
     val absoluteNumber: Int = if(minus) -number else number
     val reversed: String = absoluteNumber.toString.reverse
     val indexedSeq: Seq[(Char, Int)] = reversed.zipWithIndex
-    println(indexedSeq)
     val nestedSeq: Seq[Seq[Char]] = indexedSeq.map(
       (t) => if (t._2 % 3 == 2 && t._2 != indexedSeq.size - 1) {
         Seq(t._1, ',')
