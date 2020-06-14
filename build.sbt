@@ -2,9 +2,9 @@ name := "webapp-curriculum-2009-1"
 
 version := "1.0"
 
-scalaVersion := "2.12.7"
+scalaVersion := "2.13.2"
 
-libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.5" % "test"
-
-libraryDependencies += "org.mockito" % "mockito-core" % "2.21.0" % "test"
-
+libraryDependencies ++= Seq(
+  "org.scalatest" %% "scalatest" % "3.1.2" % Test,
+  "org.mockito" % "mockito-core" % "3.3.3" % Test
+)
