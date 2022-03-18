@@ -1,16 +1,18 @@
-object NumberFormatter {
+import org.scalatest._
 
-  def format(number: Int): String = {
-    val reversed: String = number.toString.reverse
-    val indexedSeq: Seq[(Char, Int)] = reversed.zipWithIndex
-    val nestedSeq: Seq[Seq[Char]] = indexedSeq.map(
-      (t) => if (t._2 % 3 == 2) {
-        Seq(t._1, ',')
-      } else {
-        Seq(t._1)
-      })
-    nestedSeq.flatten.reverse.mkString
+class NumberFormatterSpec extends FlatSpec with DiagrammedAssertions {
+
+  // scalastyle:off
+  it should "整数をフォーマットできる" in {
+    import NumberFormatter._
+    assert(format(1) === "1")
+    assert(format(0) === "0")
+    assert(format(-1) === "-1")
+    assert(format(100) === "100")
+    assert(format(-100) === "-100")
+    assert(format(1000) === "1,000")
+    assert(format(-1000) === "-1,000")
   }
+  // scalastyle:on
 
 }
-
